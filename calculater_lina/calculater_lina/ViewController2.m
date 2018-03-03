@@ -9,7 +9,11 @@
 #import "ViewController2.h"
 
 @interface ViewController2 ()
-@property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *Price;
+@property (weak, nonatomic) IBOutlet UITextField *mealprice;
+@property (weak, nonatomic) IBOutlet UITextField *people;
+@property (weak, nonatomic) IBOutlet UITextField *tips;
+@property (weak, nonatomic) IBOutlet UIButton *pay;
 
 @end
 
@@ -35,4 +39,10 @@
 }
 */
 
+- (IBAction)calculate:(id)sender {
+    NSLog(_mealprice.text);
+    NSLog(_tips.text);
+    NSLog(_people.text);
+    [_Price setText:[NSString stringWithFormat:@"%.2f",([_mealprice.text floatValue]*([_tips.text floatValue]+100)*0.01)/[_people.text floatValue]]];
+}
 @end
